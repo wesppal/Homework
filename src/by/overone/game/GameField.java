@@ -1,84 +1,58 @@
 package by.overone.game;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameField {
+    static int lengthField = 9;
+    static List<Cell> fieldEmpty = new ArrayList<>();
+    static List<Cell> fieldForGame = new ArrayList<>();
 
-
-    static char[] fieldForGame = {' ', ' ', ' ',
-            ' ', ' ', ' ',
-            ' ', ' ', ' '};
-
-    private static char[] fieldHelp = {'0', '1', '2',
-            '3', '4', '5',
-            '6', '7', '8'};
-
-
-//    public static char[] step(int cellNumber, char figure) {
-//        fieldForGame[cellNumber] = figure;
-//        return fieldForGame;
-//    }
-
-
-    public static void step(int cellNumber, char figure) {
-        fieldForGame[cellNumber] = figure;
-    }
-
-//    public static char[] clear() {
-//        for (int i = 0; i < fieldForGame.length; i++) {
-//            fieldForGame[i] = ' ';
-//        }
-//        return fieldForGame;
-//    }
-
-    public static void clear() {
-        for (int i = 0; i < fieldForGame.length; i++) {
-            fieldForGame[i] = ' ';
+    static {
+        for (int i = 0; i < lengthField; i++) {
+            fieldForGame.add(new Cell());
+            fieldEmpty.add(fieldForGame.get(i));
         }
     }
 
-    public static void printField() {
-        System.out.print("|");
-        int count = 0;
 
-        for (int i = 0; i < fieldForGame.length; i++) {
-            count++;
+    public static List step(int cellNumber, char figure) {
+        if ((cellNumber >= 0) && (cellNumber < lengthField)) {
+            fieldForGame.get(cellNumber).figure = figure;
 
-            if (count == 3) {
-                System.out.println(fieldForGame[i] + "|");
-                count = 0;
+            for (Cell cell:fieldEmpty) {
 
-                if (i != fieldForGame.length - 1) {
-                    System.out.print("|");
+                if (cell.index == cellNumber){
+                    fieldEmpty.remove(cell);
+                    break;
                 }
-
-            } else {
-                System.out.print(fieldForGame[i] + "|");
             }
+        } else {
+            System.out.println("Sorry, there is no given cell, choose another one.");
         }
-        System.out.println("\n");
-    }
+            return fieldForGame;
+        }
 
-    public static void printHelpField() {
-        System.out.print("\n" + "Help by cell numbers.\n\n" + "|");
-        int count = 0;
 
-        for (int i = 0; i < fieldHelp.length; i++) {
-            count++;
+        public static void printField () {
+            System.out.print("|");
+            int count = 0;
 
-            if (count == 3) {
-                System.out.println(fieldHelp[i] + "|");
-                count = 0;
+            for (int i = 0; i < fieldForGame.size(); i++) {
+                count++;
 
-                if (i != fieldHelp.length - 1) {
-                    System.out.print("|");
+                if (count == 3) {
+                    System.out.println(fieldForGame.get(i).figure + "|");
+                    count = 0;
+
+                    if (i != fieldForGame.size() - 1) {
+                        System.out.print("|");
+                    }
+
+                } else {
+                    System.out.print(fieldForGame.get(i).figure + "|");
                 }
-
-            } else {
-                System.out.print(fieldHelp[i] + "|");
             }
+            System.out.println("\n");
         }
-
-        System.out.println("____________________\n");
-
     }
-}

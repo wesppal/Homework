@@ -9,11 +9,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         int a;
 
         while(true) {
-            GameField.printHelpField();
             System.out.print("Your step - ");
             a = sc.nextInt();
             User.step(a);
