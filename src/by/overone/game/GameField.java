@@ -1,10 +1,10 @@
-package by.overone;
+package by.overone.game;
 
 
-public class Field {
+public class GameField {
 
 
-    private static char[] fieldForGame = {' ', ' ', ' ',
+    static char[] fieldForGame = {' ', ' ', ' ',
             ' ', ' ', ' ',
             ' ', ' ', ' '};
 
@@ -13,10 +13,22 @@ public class Field {
             '6', '7', '8'};
 
 
-    public static char[] step(int cellNumber, char figure) {
+//    public static char[] step(int cellNumber, char figure) {
+//        fieldForGame[cellNumber] = figure;
+//        return fieldForGame;
+//    }
+
+
+    public static void step(int cellNumber, char figure) {
         fieldForGame[cellNumber] = figure;
-        return fieldForGame;
     }
+
+//    public static char[] clear() {
+//        for (int i = 0; i < fieldForGame.length; i++) {
+//            fieldForGame[i] = ' ';
+//        }
+//        return fieldForGame;
+//    }
 
     public static char[] clear() {
         for (int i = 0; i < fieldForGame.length; i++) {
