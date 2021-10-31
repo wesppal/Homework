@@ -11,14 +11,16 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int a;
+        String a;
 
-        while(true) {
+        while (true) {
             System.out.print("Your step - ");
-            a = sc.nextInt();
-            User.step(a);
-            GameField.printField();
+            if (IsNumeric.isInt(a = sc.nextLine())) {
+                User.step(Integer.parseInt(a));
+                GameField.printField();
+            }else{
+                System.out.println("Sorry, you didn't enter a number.");
+            }
         }
-
     }
 }
