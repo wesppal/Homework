@@ -9,7 +9,7 @@ public class Ai {
         Random random = new Random();
         int stepAi = random.nextInt(8);
         while (true) {
-            if (GameField.fieldForGame[stepAi] != 'X') {
+            if ((GameField.fieldForGame[stepAi] != 'X') && (GameField.fieldForGame[stepAi] != figureAI)) {
                 GameField.step(stepAi, figureAI);
                 break;
             }
