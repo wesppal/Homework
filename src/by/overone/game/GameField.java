@@ -30,11 +30,10 @@ public class GameField {
 //        return fieldForGame;
 //    }
 
-    public static char[] clear() {
+    public static void clear() {
         for (int i = 0; i < fieldForGame.length; i++) {
             fieldForGame[i] = ' ';
         }
-        return fieldForGame;
     }
 
     public static void printField() {
