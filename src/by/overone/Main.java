@@ -11,9 +11,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a;
-        GameField.printHelpField();
+
         while(true) {
-            System.out.println("Your step - ");
+            GameField.printHelpField();
+            System.out.print("Your step - ");
             a = sc.nextInt();
             User.step(a);
             GameField.printField();
