@@ -2,31 +2,44 @@ package by.overone;
 
 
 public class Field {
-    //    public String[][] field = {{".",".","."},{".",".","."},{".",".","."}};
-    private final char[][] fieldTempast = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
-    public char[][] field = fieldTempast;
-    int length;
 
-    public void clearField(){
-        this.field = this.fieldTempast;
+
+    private static char[] fieldForGame = {' ', ' ', ' ',
+            ' ', ' ', ' ',
+            ' ', ' ', ' '};
+
+
+    public static char[] step(int cellNumber, char figure) {
+        fieldForGame[cellNumber] = figure;
+        return fieldForGame;
     }
 
-    //    private static String[][] help() {
-//        String[][] field = new String[3][3];
-//        for (int i = 0; i < field.length; i++) {
-//            for (int j = 0; j < field[i].length; j++) {
-//                field[i][j] = i + ";" + j;
-//            }
-//        }
-//        return field;
-//    }
+    public static char[] clear() {
+        for (int i = 0; i < fieldForGame.length; i++) {
+            fieldForGame[i] = ' ';
+        }
+        return fieldForGame;
+    }
 
-//    public static void printHelp(){
-//        System.out.println("\n" + "Help. Coordinates of the field.");
-//        for (String[] arr : Field.help()) {
-//            System.out.println(Arrays.toString(arr));
-//        }
-//    }
+    public static void printField() {
+        System.out.print("|");
+        int count = 0;
 
+        for (int i = 0; i < fieldForGame.length; i++) {
+            count++;
 
+            if (count == 3) {
+                System.out.println(fieldForGame[i] + "|");
+                count = 0;
+
+                if (i != fieldForGame.length - 1) {
+                    System.out.print("|");
+                }
+
+            } else {
+                System.out.print(fieldForGame[i] + "|");
+            }
+
+        }
+    }
 }
