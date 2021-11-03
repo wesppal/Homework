@@ -13,9 +13,8 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         String a;
-        boolean bool = true;
 
-        while (bool) {
+        while (true) {
             System.out.print("Your step - ");
             if (IsNumeric.isInt(a = sc.nextLine())) {
                 User.step(Integer.parseInt(a));
