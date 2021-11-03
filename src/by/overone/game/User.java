@@ -28,4 +28,59 @@ public class User {
             System.out.println("Sorry, this cage is busy. Choose another one.");
         }
     }
+
+
+    public static boolean youWon() {
+        boolean bool = false;
+        if ((GameField.fieldForGame.get(4).figure == figureUser)) {
+            if ((GameField.fieldForGame.get(4).figure == GameField.fieldForGame.get(1).figure)
+                    && ((GameField.fieldForGame.get(4).figure)==(GameField.fieldForGame.get(7).figure))) {
+                bool = true;
+            }
+
+
+            if ((GameField.fieldForGame.get(4).figure == GameField.fieldForGame.get(3).figure)
+                    && ((GameField.fieldForGame.get(4).figure)==(GameField.fieldForGame.get(5).figure))) {
+                bool = true;
+            }
+
+
+            if ((GameField.fieldForGame.get(4).figure == GameField.fieldForGame.get(0).figure)
+                    && ((GameField.fieldForGame.get(4).figure)==(GameField.fieldForGame.get(8).figure))) {
+                bool = true;
+            }
+
+
+            if ((GameField.fieldForGame.get(4).figure == GameField.fieldForGame.get(2).figure)
+                    && ((GameField.fieldForGame.get(4).figure)==(GameField.fieldForGame.get(6).figure))) {
+                bool = true;
+            }
+        }
+
+
+        if ((GameField.fieldForGame.get(0).figure == figureUser)) {
+            if ((GameField.fieldForGame.get(0).figure == GameField.fieldForGame.get(3).figure)
+                    && ((GameField.fieldForGame.get(0).figure)==(GameField.fieldForGame.get(6).figure))) {
+                bool = true;
+            }
+
+            if ((GameField.fieldForGame.get(0).figure == GameField.fieldForGame.get(1).figure)
+                    && ((GameField.fieldForGame.get(0).figure)==(GameField.fieldForGame.get(2).figure))) {
+                bool = true;
+            }
+        }
+
+        if ((GameField.fieldForGame.get(8).figure == figureUser)) {
+            if ((GameField.fieldForGame.get(8).figure == GameField.fieldForGame.get(6).figure)
+                    && ((GameField.fieldForGame.get(8).figure)==(GameField.fieldForGame.get(7).figure))) {
+                bool = true;
+            }
+
+            if ((GameField.fieldForGame.get(8).figure == GameField.fieldForGame.get(2).figure)
+                    && ((GameField.fieldForGame.get(8).figure)==(GameField.fieldForGame.get(5).figure))) {
+                bool = true;
+            }
+        }
+        return bool;
+    }
 }
