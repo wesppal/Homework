@@ -9,6 +9,9 @@ public class Cell {
         this.index = counter;
         this.figure = ' ';
         counter++;
+        if (counter == GameField.lengthField) {
+            counter = 0;
+        }
     }
 
     @Override

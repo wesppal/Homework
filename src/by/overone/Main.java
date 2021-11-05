@@ -13,6 +13,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         String a;
+        GameField.printHeld();
 
         while (true) {
             System.out.print("Your step - ");
@@ -24,12 +25,25 @@ public class Main {
             }
             if (Ai.gameOver()) {
                 System.out.println("Game Over. You lose.");
+                System.out.println("Do you want to try again? 0 - No; 1 - Yes;");
+                a = sc.nextLine();
+                if (a.contains("1")) {
+                    GameField.clearField();
+                    continue;
+                }
                 break;
             }
             if (User.youWon()) {
                 System.out.println("Congratulation. You won!");
+                System.out.println("Do you want to try again? 0 - No; 1 - Yes;");
+                a = sc.nextLine();
+                if (a.contains("1")) {
+                    GameField.clearField();
+                    continue;
+                }
                 break;
             }
         }
+
     }
 }

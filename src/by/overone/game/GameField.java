@@ -57,9 +57,34 @@ public class GameField {
     }
 
     public static void clearField() {
+        fieldForGame.clear();
+        fieldEmpty.clear();
         for (int i = 0; i < lengthField; i++) {
             fieldForGame.add(new Cell());
             fieldEmpty.add(fieldForGame.get(i));
         }
+    }
+
+    public static void printHeld() {
+        System.out.println("Cell Numbers : \n");
+        System.out.print("|");
+        int count = 0;
+
+        for (int i = 0; i < fieldForGame.size(); i++) {
+            count++;
+
+            if (count == 3) {
+                System.out.println(i + "|");
+                count = 0;
+
+                if (i != fieldForGame.size() - 1) {
+                    System.out.print("|");
+                }
+
+            } else {
+                System.out.print(i + "|");
+            }
+        }
+        System.out.println("\n");
     }
 }
