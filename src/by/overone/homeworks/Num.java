@@ -17,8 +17,13 @@ public class Num<A extends Number> {
         if (value instanceof Short){
             return (A)(Short)sum.shortValue();
         }
+        if (value instanceof Long){
+            return (A)(Long)sum.longValue();
+        }
+
         return (A) sum;
     }
+
 
     @Override
     public String toString() {

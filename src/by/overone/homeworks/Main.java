@@ -12,7 +12,7 @@ public class Main {
         System.out.println(byteNum.sum((byte) 1));
         Num<Short> shortNum = new Num((short) 2);
         System.out.println(shortNum.sum((short) 2));
-        Num<Long> longNum = new Num(100000000000000000L);
-        System.out.println(longNum.sum(200000000000000000L));
+        Num<Long> longNum = new Num(9000000000000000000L);
+        System.out.println(longNum.sum(9000000000000000000L));
     }
 }
