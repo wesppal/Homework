@@ -2,44 +2,17 @@ package by.overone.homeworks;
 
 public class Main {
     public static void main(String[] args) {
-//        int a = 10;
-//        int b = 2;
-//
-//        try {
-//            System.out.println(a/b);
-//        }
-//        catch (ArithmeticException e) {
-//            System.out.println("Division by zero/ sorry");
-//        }
-//        finally {
-//            System.out.println("Goodbye");
-//        }
-try {
-
-    print();
-}
-catch (Exception e){
-    System.out.println("it's okay");
-}
-
-
-    }
-
-    public static void print () throws  Exception{
-        int[] array = {1, 2, 0, 4, 5};
-        int length = 6;
-
-        for (int i = 0; i < length; i++) {
-            try {
-                System.out.println(10 / array[i]);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("ai yai yai, vihod za predeli");
-            } catch (ArithmeticException e2) {
-                System.out.println("delenie na nol");
-                throw new Exception();
-            }
-        }
-
-
+        Num<Integer> integerNum = new Num(5);
+        System.out.println(integerNum.sum(5));
+        Num<Double> doubleNum = new Num(5.0);
+        System.out.println(doubleNum.sum(5.0));
+        Num<Float> floatNum = new Num(1f);
+        System.out.println(floatNum.sum(2f));
+        Num<Byte> byteNum = new Num((byte) 1);
+        System.out.println(byteNum.sum((byte) 1));
+        Num<Short> shortNum = new Num((short) 2);
+        System.out.println(shortNum.sum((short) 2));
+        Num<Long> longNum = new Num(100000000000000000L);
+        System.out.println(longNum.sum(200000000000000000L));
     }
 }
