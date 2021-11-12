@@ -58,7 +58,7 @@ public enum Data {
             allZodiac.add(scorpio);
             Zodiac sagittarius = new Zodiac(23, 11, 21, 12, "Стрелец");
             allZodiac.add(sagittarius);
-            Zodiac capricorn = new Zodiac(22, 12, 20, 1, "Козерок");
+            Zodiac capricorn = new Zodiac(22, 12, 20, 1, "Козерог");
             allZodiac.add(capricorn);
             Zodiac aquarius = new Zodiac(21, 1, 20, 2, "Водолей");
             allZodiac.add(aquarius);
@@ -66,26 +66,7 @@ public enum Data {
             allZodiac.add(pisces);
 
         }
-
-        @Override
-        public String toString() {
-            return "Zodiac[" +
-                    "sinceDay=" + sinceDay +
-                    ", sinceMonth=" + sinceMonth +
-                    ", endDay=" + endDay +
-                    ", endMonth=" + endMonth +
-                    ", rusName=" + rusName + "]";
-        }
     }
-
-
-//    private static class Aries {
-//        static int sinceDay = 21;
-//        static int sinceMonth = 3;
-//        static int endDay = 20;
-//        static int endMonth = 4;
-//        static String rusName = "Овен";
-//    }
 
 
     public static boolean checkData(int day, int month) {
@@ -104,17 +85,15 @@ public enum Data {
         return false;
     }
 
-//    public static void outZodiac(int day, int month) {
-//        if (checkData(day, month)) {
-//            if (((day >= Aries.sinceDay) && (month == Aries.sinceMonth) && (day <= Data.values()[month - 1].days))
-//                    || (day <= Aries.endDay) && (month == Aries.endMonth) && (day > 0)) {
-//                System.out.println("Ваш знак зодиака - " + Aries.rusName + ".");
-//            }
-//        }
-//    }
 
-
-    public static void getAllZodiac() {
-        Zodiac.allZodiac.forEach(System.out::println);
+    public static void outZodiac(int day, int month) {
+        if (checkData(day, month)) {
+            for (Zodiac zodiac : Zodiac.allZodiac) {
+                if ((day > zodiac.sinceDay) && (month == zodiac.sinceMonth) && (day <= Data.values()[month - 1].days)
+                    ||(day <= zodiac.endDay) && (month == zodiac.endMonth) && (day > 0)){
+                    System.out.println("Ваш знак зодиака - " + zodiac.rusName + ".");
+                }
+            }
+        }
     }
 }
