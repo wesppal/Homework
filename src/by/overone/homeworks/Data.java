@@ -19,19 +19,37 @@ public enum Data {
         this.rusName = rusName;
     }
 
-    public static void checkData(int day, int month) {
+    private static class Aries {
+        static int sinceDay = 21;
+        static int sinceMonth = 3;
+        static int endDay = 20;
+        static int endMonth = 4;
+        static String rusName = "Овен";
+    }
+
+
+    public static boolean checkData(int day, int month) {
 
         try {
             if ((day < 1) || (day > values()[month - 1].days)) {
                 System.out.println("В этом месяце нет такой даты. Проверьте введённый данные. Ваш месяц - "
                         + values()[month - 1].rusName + ", количество дней в нём - " + values()[month - 1].days + ".");
             }
-        }
-        catch (Exception e) {
+            return true;
+        } catch (Exception e) {
             if ((month < 1) || (month > 12)) {
                 System.out.println("Такого месяца нет. Проверьте введённые данные. Месяц в формате от 1 до 12.");
             }
         }
+        return false;
+    }
 
+    public static void outZodiac(int day, int month) {
+        if (checkData(day, month)) {
+            if (((day >= Aries.sinceDay) && (month == Aries.sinceMonth) && (day <= Data.values()[month - 1].days))
+                    || (day <= Aries.endDay) && (month == Aries.endMonth) && (day > 0)) {
+                System.out.println("Ваш знак зодиака - " + Aries.rusName + ".");
+            }
+        }
     }
 }
