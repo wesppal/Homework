@@ -2,6 +2,6 @@ package by.overone.homeworks;
 
 public class Main {
     public static void main(String[] args) {
-        Data.checkData(41,12);
+        Data.checkData(21,1);
     }
 }
