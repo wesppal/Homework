@@ -17,8 +17,6 @@ public class Main {
         }
         System.out.println(text);
 
-//        File tempFile = new File("tempTxt.txt");
-
         OpText.repeatingWord(text.toString(), 5);
         OpText.uniqueWord(text.toString());
         OpText.longWord(text.toString());
