@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        File file = new File("D:/Учёба Java/Homework/src/by/overone/Толстой Лев. Война и мир. Том 1 и 2.txt");
+        File file = new File("D:/Учёба Java/Homework/src/by/overone/War_and_peace_Leo_Tolstoy.txt");
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
         BufferedReader reader = new BufferedReader(inputStreamReader);
         int ch;
