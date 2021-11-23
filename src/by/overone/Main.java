@@ -6,6 +6,12 @@ import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        String link = "https://raw.githubusercontent.com/wesppal/Homework/homework_27/src/by/overone/War_and_peace_Leo_Tolstoy.txt";
+
+        File out = new File("src/by/overone/War_and_peace_Leo_Tolstoy.txt");
+
+        new Thread(new Download(link,out)).start();
+
         File file = new File("D:/Учёба Java/Homework/src/by/overone/War_and_peace_Leo_Tolstoy.txt");
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
         BufferedReader reader = new BufferedReader(inputStreamReader);
