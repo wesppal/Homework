@@ -18,5 +18,7 @@ public class Main {
         File tempFile = new File("D:/Учёба Java/Homework/src/by/overone/tempTxt.txt");
         tempFile.mkdir();
         OpText.repeatingWord(text.toString(), 5);
+
+        OpText.repeatingWordMin(text.toString());
     }
 }
