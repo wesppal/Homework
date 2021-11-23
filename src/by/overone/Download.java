@@ -32,9 +32,10 @@ public class Download implements Runnable {
             bos.close();
             bis.close();
             fos.close();
-            System.out.println(fileSize);
-            System.out.println("Для корректной работы 2 раза запустить программу.");
-
+            if (!out.exists()) {
+                System.out.println(fileSize);
+                System.out.println("Для корректной работы запустите ещё раз программу.");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
