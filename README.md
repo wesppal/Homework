@@ -1,5 +1,5 @@
 # Homework
 
-### Includes homeworks started from 21 lesson
+### Homeworks by 27 lesson
 
 Java: 11
