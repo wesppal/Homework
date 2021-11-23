@@ -8,13 +8,15 @@ public class Main {
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
         BufferedReader reader = new BufferedReader(inputStreamReader);
         int ch;
-        StringBuilder builder = new StringBuilder();
+        StringBuilder text = new StringBuilder();
 
         while ((ch = reader.read()) != -1) {
-            builder.append((char) ch);
+            text.append((char) ch);
         }
-        System.out.println(builder);
+        System.out.println(text);
 
-
+        File tempFile = new File("D:/Учёба Java/Homework/src/by/overone/tempTxt.txt");
+        tempFile.mkdir();
+        OpText.repeatingWord(text.toString(), 5);
     }
 }
