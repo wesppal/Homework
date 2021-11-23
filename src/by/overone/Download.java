@@ -20,7 +20,6 @@ public class Download implements Runnable {
 
             URL url = new URL(link);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
-            double fileSize = Math.abs((double) http.getContentLengthLong());
             BufferedInputStream bis = new BufferedInputStream(http.getInputStream());
             FileOutputStream fos = new FileOutputStream(this.out);
             BufferedOutputStream bos = new BufferedOutputStream(fos, 1024);
@@ -32,10 +31,6 @@ public class Download implements Runnable {
             bos.close();
             bis.close();
             fos.close();
-            if (!out.exists()) {
-                System.out.println(fileSize);
-                System.out.println("Для корректной работы запустите ещё раз программу.");
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
