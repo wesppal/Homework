@@ -38,6 +38,8 @@ public class Main {
             for (String s : yearsSet) {
                 System.out.print(s + "; ");
             }
+            inputStreamReader.close();
+            reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Файл только скачался.Для корректной работы запустите ещё раз программу.");
         }
