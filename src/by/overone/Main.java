@@ -14,8 +14,8 @@ public class Main {
 
 
         try {
-            InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(out), "UTF-8");
-            BufferedReader reader = new BufferedReader(inputStreamReader);
+            InputStreamReader iSR = new InputStreamReader(new FileInputStream(out), "UTF-8");
+            BufferedReader reader = new BufferedReader(iSR);
             int ch;
             StringBuilder text = new StringBuilder();
 
@@ -35,10 +35,10 @@ public class Main {
             }
 
             TreeSet<String> yearsSet = new TreeSet<>(years);
-            for (String s : yearsSet) {
-                System.out.print(s + "; ");
+            for (String str : yearsSet) {
+                System.out.print(str + "; ");
             }
-            inputStreamReader.close();
+            iSR.close();
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Файл только скачался.Для корректной работы запустите ещё раз программу.");

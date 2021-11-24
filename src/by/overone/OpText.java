@@ -8,48 +8,49 @@ import java.util.List;
 public class OpText {
     public static void repeatingWord(String text, int numberOfLettersInAWord) {
         String[] textArrayWords = text.split("\\s");
-        HashMap<String, Integer> h = new HashMap<>();
+        HashMap<String, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < textArrayWords.length; i++) {
-            if (h.containsKey(textArrayWords[i])) {
-                h.replace(textArrayWords[i], h.get(textArrayWords[i]) + 1);
+            if (hashMap.containsKey(textArrayWords[i])) {
+                hashMap.replace(textArrayWords[i], hashMap.get(textArrayWords[i]) + 1);
             } else {
-                h.put(textArrayWords[i], 1);
+                hashMap.put(textArrayWords[i], 1);
             }
         }
-        String s = null;
-        int p = 0;
-        for (String w : h.keySet()) {
+        String str = null;
+
+        int repeat = 0;
+        for (String w : hashMap.keySet()) {
             if (w.length() >= numberOfLettersInAWord) {
-                if (p < h.get(w)) {
-                    p = h.get(w);
-                    s = w;
+                if (repeat < hashMap.get(w)) {
+                    repeat = hashMap.get(w);
+                    str = w;
                 }
             }
         }
-        System.out.println("Самое повторяющееся слово: " + s + " (встречается " + h.get(s) + " раз)");
+        System.out.println("Самое повторяющееся слово: " + str + " (встречается " + hashMap.get(str) + " раз)");
     }
 
     public static void uniqueWord(String text) {
         String[] textArrayWords = text.split("\\s");
-        HashMap<String, Integer> h = new HashMap<>();
+        HashMap<String, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < textArrayWords.length; i++) {
-            if (h.containsKey(textArrayWords[i])) {
-                h.replace(textArrayWords[i], h.get(textArrayWords[i]) + 1);
+            if (hashMap.containsKey(textArrayWords[i])) {
+                hashMap.replace(textArrayWords[i], hashMap.get(textArrayWords[i]) + 1);
             } else {
-                h.put(textArrayWords[i], 1);
+                hashMap.put(textArrayWords[i], 1);
             }
         }
-        String s = null;
-        Integer min = h.get(textArrayWords[0]);
-        for (String w : h.keySet()) {
-            if (h.get(w) != null) {
-                if (Math.min(min, h.get(w)) <= min) {
-                    s = w;
+        String str = null;
+        Integer min = hashMap.get(textArrayWords[0]);
+        for (String words : hashMap.keySet()) {
+            if (hashMap.get(words) != null) {
+                if (Math.min(min, hashMap.get(words)) <= min) {
+                    str = words;
                 }
-                min = Math.min(min, h.get(w));
+                min = Math.min(min, hashMap.get(words));
             }
         }
-        System.out.println("Самое редкое слово: " + s + " (встречается " + h.get(s) + " раз)");
+        System.out.println("Самое редкое слово: " + str + " (встречается " + hashMap.get(str) + " раз)");
     }
 
     public static void longWord(String text) {
@@ -78,9 +79,9 @@ public class OpText {
         return years;
     }
 
-    private static boolean isDigit(String s) throws NumberFormatException {
+    private static boolean isDigit(String str) throws NumberFormatException {
         try {
-            Integer.parseInt(s);
+            Integer.parseInt(str);
             return true;
         } catch (NumberFormatException e) {
             return false;
